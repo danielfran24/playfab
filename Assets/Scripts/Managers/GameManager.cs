@@ -23,10 +23,6 @@ public class GameManager : Singleton<GameManager>{
 
         OnserverLogin += LoadServerData;
 
-        PlayerData.Money = 10;
-        PlayerData.TotalHP = 2;
-        PlayerData.MaxScore = 100;
-
     }
 
     void OnDestroy() {
@@ -52,6 +48,12 @@ public class GameManager : Singleton<GameManager>{
 
 
     private void OnLoginSuccess(LoginResult loginResult) {
+
+        if (loginResult.NewlyCreated) {
+
+            PlayfabManager.Instance.SetPlayerData();
+
+        }
 
         Debug.Log("User Login: " + loginResult.PlayFabId);
 

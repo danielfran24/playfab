@@ -14,8 +14,6 @@ public class PlayfabManager : Singleton<PlayfabManager> {
 
 
 
-       // SetPlayerData();
-
     }
 
     private void Update() {
@@ -43,6 +41,8 @@ public class PlayfabManager : Singleton<PlayfabManager> {
         };
 
         PlayFabClientAPI.LoginWithCustomID(request, onSucces, onFail);
+
+        
 
 
     }

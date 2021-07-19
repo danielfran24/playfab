@@ -251,9 +251,9 @@ MonoBehaviour:
     MoneyBase: 0
     MoneyRatio: 0
   PlayerData:
-    Money: 0
-    TotalHP: 0
-    MaxScore: 0
+    Money: 100
+    TotalHP: 2
+    MaxScore: 999
 --- !u!4 &1733691100
 Transform:
   m_ObjectHideFlags: 0
