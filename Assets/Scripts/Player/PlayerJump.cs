@@ -13,6 +13,15 @@ public class PlayerJump : MonoBehaviour{
 
     public Animator playerAnimator;
 
+    public float cooldown;
+
+    private float time;
+
+    private bool canAttack = true;
+    private bool attacking = false;
+
+    public BoxCollider2D attackCollider;
+
     void FixedUpdate(){
 
         if (isJump) {
@@ -28,6 +37,48 @@ public class PlayerJump : MonoBehaviour{
 
 
     }
+
+    void Update() {
+
+        AnimatorStateInfo stateInfo = playerAnimator.GetCurrentAnimatorStateInfo(0);
+
+        attacking = stateInfo.IsName("Dash-Attack");
+
+        if (!canAttack) {
+
+
+            time -= Time.deltaTime;
+            if (time <= 0) {
+
+                canAttack = true;
+                
+
+            }
+
+        }
+
+        if (attacking) {
+
+            
+            float playbackTime = stateInfo.normalizedTime;
+            
+            if(playbackTime >0.33 && playbackTime < 0.66) {
+
+                attackCollider.enabled = true;
+
+            }else {
+
+                attackCollider.enabled = false;
+
+            }
+
+
+        }
+
+
+
+    }
+
 
 
     public void ClickJump() {
@@ -62,11 +113,26 @@ public class PlayerJump : MonoBehaviour{
 
             myRigidbody.gravityScale = 90;
 
+        }else{
+
+            if (canAttack) {
+
+                playerAnimator.SetTrigger("attack");
+                
+                canAttack = false;
+
+                time = cooldown;
+
+            }
+
+            
+
+
+
         }
         
 
     }
-
 
 
 }

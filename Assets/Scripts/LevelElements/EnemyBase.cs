@@ -8,10 +8,19 @@ public class EnemyBase : MonoBehaviour{
     private CurrentPlayerStats player;
 
     public int damage;
+    public float speed;
+    public int score;
 
     void Awake() {
 
         player = FindObjectOfType<CurrentPlayerStats>();
+
+    }
+
+
+    void Update() {
+
+        transform.position += Vector3.left * speed * Time.deltaTime;
 
     }
 
@@ -22,7 +31,19 @@ public class EnemyBase : MonoBehaviour{
 
             player.GetDamage(damage);
 
+        }if(collision.CompareTag("Mele Attack")) {
+
+            Death(score);
+
         }
+
+    }
+
+    private void Death(int amount) {
+
+        player.AddScore(amount);
+
+        Destroy(gameObject);
 
     }
 

@@ -10,6 +10,8 @@ public class CurrentPlayerStats : MonoBehaviour{
 
     private PlayerStatsManager statsManager;
 
+    public Animator playerAnimator;
+
     [Header("Stats")]
 
     public int currentPlayerHP;
@@ -17,6 +19,8 @@ public class CurrentPlayerStats : MonoBehaviour{
     public int currentPlayerMoney;
 
     public int currentPlayerScore;
+
+    public bool dead = false;
 
 
     [Header("UI References")]
@@ -49,9 +53,20 @@ public class CurrentPlayerStats : MonoBehaviour{
 
         ScoreText.text = "Score: " + currentPlayerScore.ToString();
 
-        StartCoroutine(AddScoreByTime(1,2f));
+        //StartCoroutine(AddScoreByTime(1,2f));
 
     }
+
+    void Update() {
+
+        if (dead) {
+
+            playerAnimator.SetBool("dead", dead);
+
+        }
+
+    }
+
 
     public void AddMoney(int amount) {
 
@@ -60,6 +75,15 @@ public class CurrentPlayerStats : MonoBehaviour{
         MoneyText.text = currentPlayerMoney.ToString();
 
     }
+
+    public void AddScore(int amount) {
+
+        currentPlayerScore += amount;
+
+        ScoreText.text = currentPlayerScore.ToString();
+
+    }
+
 
 
     public void GetDamage(int amount) {
@@ -90,6 +114,7 @@ public class CurrentPlayerStats : MonoBehaviour{
 
     }
 
+    /*
     private IEnumerator AddScoreByTime(int amount,float delayTime) {
 
         yield return new WaitForSeconds(delayTime);
@@ -101,7 +126,7 @@ public class CurrentPlayerStats : MonoBehaviour{
         
 
     }
-
+*/
 
 
 
@@ -109,13 +134,17 @@ public class CurrentPlayerStats : MonoBehaviour{
 
         statsManager.totalPlayerMoney += currentPlayerMoney;
 
+        dead = true;
+        
+
+
         if (currentPlayerScore > statsManager.maxPlayerScore) {
 
             statsManager.maxPlayerScore = currentPlayerScore;
 
         }
 
-        Time.timeScale = 0;
+        
 
 
     }
