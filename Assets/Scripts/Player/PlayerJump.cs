@@ -6,6 +6,8 @@ public class PlayerJump : MonoBehaviour{
 
     public Rigidbody2D myRigidbody;
 
+    private CurrentPlayerStats player;
+
     public bool isJump = false;
     public bool canJump = true;
 
@@ -20,7 +22,15 @@ public class PlayerJump : MonoBehaviour{
     private bool canAttack = true;
     private bool attacking = false;
 
-    public BoxCollider2D attackCollider;
+
+    public BoxCollider2D swordAttackCollider;
+    public BoxCollider2D airAttackCollider;
+
+    void Awake() {
+
+        player = FindObjectOfType<CurrentPlayerStats>();
+
+    }
 
     void FixedUpdate(){
 
@@ -64,11 +74,11 @@ public class PlayerJump : MonoBehaviour{
             
             if(playbackTime >0.33 && playbackTime < 0.66) {
 
-                attackCollider.enabled = true;
+                swordAttackCollider.enabled = true;
 
             }else {
 
-                attackCollider.enabled = false;
+                swordAttackCollider.enabled = false;
 
             }
 
@@ -97,7 +107,10 @@ public class PlayerJump : MonoBehaviour{
 
             canJump = true;
 
+            airAttackCollider.enabled = false;
             myRigidbody.gravityScale = 1;
+
+            player.canTakeDamage = true;
 
             playerAnimator.SetBool("canJump", true);
 
@@ -111,9 +124,14 @@ public class PlayerJump : MonoBehaviour{
 
         if (!canJump) {
 
-            myRigidbody.gravityScale = 90;
+            player.canTakeDamage = false;
 
-        }else{
+            airAttackCollider.enabled = true;
+            myRigidbody.gravityScale = 90;
+            
+
+        }
+        else{
 
             if (canAttack) {
 

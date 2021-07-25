@@ -12,6 +12,10 @@ public class CurrentPlayerStats : MonoBehaviour{
 
     public Animator playerAnimator;
 
+    public Color flashColour = new Color(1f,0f,0f,0.1f);
+
+    public Sprite playerSprite;
+
     [Header("Stats")]
 
     public int currentPlayerHP;
@@ -22,6 +26,9 @@ public class CurrentPlayerStats : MonoBehaviour{
 
     public bool dead = false;
 
+    public bool canTakeDamage = true;
+
+    public bool damaged = false; 
 
     [Header("UI References")]
 
@@ -88,21 +95,54 @@ public class CurrentPlayerStats : MonoBehaviour{
 
     public void GetDamage(int amount) {
 
-        currentPlayerHP -= amount;
+        if (canTakeDamage) {
 
-        HPText.text = "x" + currentPlayerHP.ToString();
+            currentPlayerHP -= amount;
 
-        if (currentPlayerHP <= 0) {
+            HPText.text = "x" + currentPlayerHP.ToString();
 
-            PlayerDeath();
+            playerAnimator.SetTrigger("damaged");
+
+            if (currentPlayerHP <= 0) {
+
+                PlayerDeath();
+
+            }else {
+
+                StartDamageAnimation();
+
+            }
+
 
         }
 
+
+
     }
+
+    private void StartDamageAnimation() {
+
+        if (!damaged) {
+
+            damaged = true;
+            canTakeDamage = false;
+
+        }
+
+
+    }
+
+    public void StopDamageAnimation() {
+
+        damaged = false;
+        canTakeDamage = true;
+
+    }
+
 
     public void HealPlayer(int amount) {
 
-        currentPlayerHP -= amount;
+        currentPlayerHP += amount;
 
         if (currentPlayerHP > statsManager.maxPlayerHP) {
 
