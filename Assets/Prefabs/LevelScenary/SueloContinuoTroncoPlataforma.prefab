@@ -496,6 +496,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2781333058228753264}
   - component: {fileID: 5199838162771079932}
+  - component: {fileID: -3517061158008694828}
   m_Layer: 0
   m_Name: SueloContinuoTroncoPlataforma
   m_TagString: Ground
@@ -559,6 +560,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 5.131901, y: 1.8595142}
   m_EdgeRadius: 0
+--- !u!114 &-3517061158008694828
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2781333058228753265}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0cadc8f81e0606d469c62618315306a7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 6
 --- !u!1 &2781333058768865374
 GameObject:
   m_ObjectHideFlags: 0
