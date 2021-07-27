@@ -11,6 +11,13 @@ public class EnemyBase : MonoBehaviour{
     public float speed;
     public int score;
 
+    public bool jumper;
+    public float jumpForce;
+
+    public Rigidbody2D myRb2d;
+    private bool canJump = true;
+
+
     void Awake() {
 
         player = FindObjectOfType<CurrentPlayerStats>();
@@ -20,7 +27,21 @@ public class EnemyBase : MonoBehaviour{
 
     void Update() {
 
-        transform.position += Vector3.left * speed * Time.deltaTime;
+        if (!jumper) {
+
+            transform.position += Vector3.left * speed * Time.deltaTime;
+
+        }        
+
+    }
+
+    void FixedUpdate() {
+
+        if (jumper && canJump) {
+
+            Jump();
+
+        }
 
     }
 
@@ -44,6 +65,25 @@ public class EnemyBase : MonoBehaviour{
         player.AddScore(amount);
 
         Destroy(gameObject);
+
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision) {
+
+        if (collision.gameObject.CompareTag("Ground")) {
+
+            canJump = true;
+
+        }
+
+
+    }
+
+    private void Jump() {
+
+        myRb2d.AddForce(Vector2.up * jumpForce);
+
+        canJump = false;
 
     }
 

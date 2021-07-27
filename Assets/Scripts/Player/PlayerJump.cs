@@ -26,6 +26,8 @@ public class PlayerJump : MonoBehaviour{
     public BoxCollider2D swordAttackCollider;
     public BoxCollider2D airAttackCollider;
 
+    public GhostSprites ghost;
+
     void Awake() {
 
         player = FindObjectOfType<CurrentPlayerStats>();
@@ -105,6 +107,20 @@ public class PlayerJump : MonoBehaviour{
 
         if (collision.gameObject.CompareTag("Ground")) {
 
+
+            foreach (var item in ghost.ghostList) {
+
+                Destroy(item);
+
+            }
+
+
+            ghost.ghostList.RemoveRange(0, ghost.ghostList.Count);
+
+            ghost.enabled = false;
+            
+
+
             canJump = true;
 
             airAttackCollider.enabled = false;
@@ -124,8 +140,10 @@ public class PlayerJump : MonoBehaviour{
 
         if (!canJump) {
 
+            ghost.enabled = true;
+            
             player.canTakeDamage = false;
-
+            
             airAttackCollider.enabled = true;
             myRigidbody.gravityScale = 90;
             

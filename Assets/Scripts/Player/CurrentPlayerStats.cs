@@ -6,10 +6,6 @@ using UnityEngine.UI;
 public class CurrentPlayerStats : MonoBehaviour{
 
 
-    
-
-    private PlayerStatsManager statsManager;
-
     public Animator playerAnimator;
 
     public Color flashColour = new Color(1f,0f,0f,0.1f);
@@ -40,7 +36,7 @@ public class CurrentPlayerStats : MonoBehaviour{
 
     void Awake() {
 
-        statsManager = FindObjectOfType<PlayerStatsManager>();
+        
 
     }
 
@@ -48,7 +44,7 @@ public class CurrentPlayerStats : MonoBehaviour{
 
     void Start() {
 
-        currentPlayerHP = statsManager.maxPlayerHP;
+        currentPlayerHP = GameManager.Instance.PlayerData.TotalHP;
 
         currentPlayerMoney = 0;
 
@@ -144,9 +140,9 @@ public class CurrentPlayerStats : MonoBehaviour{
 
         currentPlayerHP += amount;
 
-        if (currentPlayerHP > statsManager.maxPlayerHP) {
+        if (currentPlayerHP > GameManager.Instance.PlayerData.TotalHP) {
 
-            currentPlayerHP = statsManager.maxPlayerHP;
+            currentPlayerHP = GameManager.Instance.PlayerData.TotalHP;
 
         }
 
@@ -172,20 +168,20 @@ public class CurrentPlayerStats : MonoBehaviour{
 
     public void PlayerDeath() {
 
-        statsManager.totalPlayerMoney += currentPlayerMoney;
+        GameManager.Instance.PlayerData.Money += currentPlayerMoney;
 
         dead = true;
         
 
 
-        if (currentPlayerScore > statsManager.maxPlayerScore) {
+        if (currentPlayerScore > GameManager.Instance.PlayerData.MaxScore) {
 
-            statsManager.maxPlayerScore = currentPlayerScore;
+            GameManager.Instance.PlayerData.MaxScore = currentPlayerScore;
 
         }
 
-        
 
+        GameManager.Instance.SaveProgress();
 
     }
 

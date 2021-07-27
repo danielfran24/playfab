@@ -20,30 +20,36 @@ public class GameManager : Singleton<GameManager>{
     #endregion
 
     void Awake() {
-
+        
         OnserverLogin += LoadServerData;
+        
+        DontDestroyOnLoad(gameObject);
 
     }
 
     void OnDestroy() {
 
         OnserverLogin -= LoadServerData;
+        
 
     }
+
 
 
     void Start() {
 
         ServerLogin();
-
+        
     }
 
+
     #region LOGIN
+
 
     private void ServerLogin() {
 
         PlayfabManager.Instance.Login(OnLoginSuccess, OnLoginFailed);
-
+        
     }
 
 
@@ -54,6 +60,8 @@ public class GameManager : Singleton<GameManager>{
             PlayfabManager.Instance.SetPlayerData();
 
         }
+
+        PlayfabManager.Instance.GetPlayerData();
 
         Debug.Log("User Login: " + loginResult.PlayFabId);
 
@@ -77,7 +85,7 @@ public class GameManager : Singleton<GameManager>{
         PlayfabManager.Instance.GetTitleData(titleData => {
 
             LoadGameSetup(titleData.Data);
-
+            
 
         },
         error => {
@@ -85,6 +93,8 @@ public class GameManager : Singleton<GameManager>{
             Debug.LogError("Get Title Data failed: " + error.ErrorMessage);
 
         });
+
+
 
     }
 
@@ -104,6 +114,13 @@ public class GameManager : Singleton<GameManager>{
     private void SetPlayfabEconomyModel(string economyJson) {
 
         JsonUtility.FromJsonOverwrite(economyJson, ServerEconomy);
+
+    }
+
+    public void SaveProgress() {
+
+        PlayfabManager.Instance.SetPlayerData();
+
 
     }
 

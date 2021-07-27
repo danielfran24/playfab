@@ -55,6 +55,7 @@ public class PlayfabManager : Singleton<PlayfabManager> {
 
     #endregion
 
+
     #region PlayerData
 
     public void GetPlayerData() {
