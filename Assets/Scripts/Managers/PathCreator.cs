@@ -26,7 +26,7 @@ public class PathCreator : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Path"))
+        if (collision.CompareTag("Ground"))
         {
             CrearPath();        
         }

@@ -9,7 +9,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 587263034888837389}
-  - component: {fileID: 7757768438026466656}
   m_Layer: 0
   m_Name: New Sprite (6)
   m_TagString: Untagged
@@ -31,56 +30,6 @@ Transform:
   m_Father: {fileID: 2781333058228753264}
   m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &7757768438026466656
-SpriteRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 157691770685378743}
-  m_Enabled: 1
-  m_CastShadows: 0
-  m_ReceiveShadows: 0
-  m_DynamicOccludee: 1
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 0
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 0
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 040d03338270e4246a90c29aa5dc57fe, type: 3}
-  m_Color: {r: 1, g: 0, b: 0, a: 1}
-  m_FlipX: 0
-  m_FlipY: 0
-  m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
-  m_AdaptiveModeThreshold: 0.5
-  m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
-  m_MaskInteraction: 0
-  m_SpriteSortPoint: 0
 --- !u!1 &2781333057528123519
 GameObject:
   m_ObjectHideFlags: 0
@@ -336,6 +285,7 @@ GameObject:
   - component: {fileID: 5199838162771079932}
   - component: {fileID: 5670894499207940293}
   - component: {fileID: 266005386266564083}
+  - component: {fileID: 8151264692127988260}
   m_Layer: 0
   m_Name: "SueloContinuoConSe\xF1al"
   m_TagString: Ground
@@ -411,6 +361,35 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 6
+  spawnsTierra: []
+  spawnsAire:
+  - {fileID: 587263034888837389}
+  spawnOptionsAire:
+  - {fileID: 5388657591572395837, guid: a1330e17731e2774c85d2e1564d18d3f, type: 3}
+  - {fileID: 5388657591572395837, guid: fcc7d56d229dc154eb1f927589009f93, type: 3}
+  - {fileID: 5388657591572395837, guid: ce06037889cc9884f8efafa91bb8dc67, type: 3}
+  - {fileID: 5388657591572395837, guid: 5feb3b6c3aad7c142952f20dfbc18e32, type: 3}
+  - {fileID: 5388657591572395837, guid: b1de7297cbff9034aa31cbcc29507872, type: 3}
+  - {fileID: 5388657591572395837, guid: b7458bf54508e4a4cab90e6e8031b186, type: 3}
+  - {fileID: 6180624015951380501, guid: bf7da852d4414ec4985fb0eac0020a67, type: 3}
+  - {fileID: 8436304648226860322, guid: f9b5423d9ca29c4499b43fb44beb88f1, type: 3}
+  - {fileID: 8436304648226860322, guid: 60e3e89de3516874a9eb0c701a0dd206, type: 3}
+  - {fileID: 8436304648226860322, guid: 3b754ee67f513084285d0fd4d5bc1d4b, type: 3}
+  - {fileID: 8436304648226860322, guid: 212a45d9ebdb2444484043650ab235cb, type: 3}
+  - {fileID: 6180624015951380501, guid: 764ac81900840a54fb8e13fac63364f6, type: 3}
+  - {fileID: 6180624015951380501, guid: 35e71be5a5f2c334cabce9f504525a4f, type: 3}
+  - {fileID: 8599459585564086959, guid: 11ca016263834fc4a9ba542df04f960d, type: 3}
+  spawnOptionsTierra:
+  - {fileID: 5388657591572395837, guid: a1330e17731e2774c85d2e1564d18d3f, type: 3}
+  - {fileID: 5388657591572395837, guid: fcc7d56d229dc154eb1f927589009f93, type: 3}
+  - {fileID: 5388657591572395837, guid: b7458bf54508e4a4cab90e6e8031b186, type: 3}
+  - {fileID: 6180624015951380501, guid: bf7da852d4414ec4985fb0eac0020a67, type: 3}
+  - {fileID: 8436304648226860322, guid: 3b754ee67f513084285d0fd4d5bc1d4b, type: 3}
+  - {fileID: 8436304648226860322, guid: 212a45d9ebdb2444484043650ab235cb, type: 3}
+  - {fileID: 6180624015951380501, guid: 764ac81900840a54fb8e13fac63364f6, type: 3}
+  - {fileID: 6180624015951380501, guid: 35e71be5a5f2c334cabce9f504525a4f, type: 3}
+  - {fileID: 8599459585564086959, guid: 11ca016263834fc4a9ba542df04f960d, type: 3}
+  spawnProbability: 0.5
 --- !u!61 &266005386266564083
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -437,6 +416,27 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!50 &8151264692127988260
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2781333058228753265}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &2781333058768865374
 GameObject:
   m_ObjectHideFlags: 0

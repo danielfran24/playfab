@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 555089265489828691}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: 3goldCoins
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -118,7 +118,7 @@ PrefabInstance:
     - target: {fileID: 6180624015951380498, guid: 764ac81900840a54fb8e13fac63364f6,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.67
+      value: 0.7
       objectReference: {fileID: 0}
     - target: {fileID: 6180624015951380498, guid: 764ac81900840a54fb8e13fac63364f6,
         type: 3}
@@ -193,7 +193,7 @@ PrefabInstance:
     - target: {fileID: 6180624015951380498, guid: 764ac81900840a54fb8e13fac63364f6,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.76
+      value: -0.7
       objectReference: {fileID: 0}
     - target: {fileID: 6180624015951380498, guid: 764ac81900840a54fb8e13fac63364f6,
         type: 3}
