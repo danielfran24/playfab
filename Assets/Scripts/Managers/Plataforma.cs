@@ -15,16 +15,40 @@ public class Plataforma : MonoBehaviour
     private float heightDifference = 4f;
     public float spawnProbability = 0.5f;
 
+    private CurrentPlayerStats player;
+    public bool inicial;
+
+
+    void Awake() {
+
+        player = FindObjectOfType<CurrentPlayerStats>();
+
+    }
+
+
+
     void Start()
     {
-        Spawn();
+        if (!inicial) {
+
+            Spawn();
+
+        }
+
+        
     }
 
     // Update is called once per frame
     void Update()
     {
-        // aqui va a haber que poner una forma de desplazarlo y que combine bien, de momento lo movere tal cual a ver
-        transform.Translate(Vector3.left * Time.deltaTime* speed);
+
+        if (!player.dead) {
+
+            // aqui va a haber que poner una forma de desplazarlo y que combine bien, de momento lo movere tal cual a ver
+            transform.Translate(Vector3.left * Time.deltaTime * speed);
+
+        }
+        
 
 
     }

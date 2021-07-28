@@ -6,6 +6,9 @@ public class DeadMenuManager : MonoBehaviour{
 
     private CurrentPlayerStats player;
 
+    public GameObject deathMenu;
+
+
     void Awake() {
 
         player = FindObjectOfType<CurrentPlayerStats>();
@@ -24,11 +27,17 @@ public class DeadMenuManager : MonoBehaviour{
 
         Time.timeScale = 0;
 
+        ShowDeathMenu();
 
 
     }
 
 
+    public void ShowDeathMenu() {
+
+        deathMenu.SetActive(true);
+
+    }
 
 
 }

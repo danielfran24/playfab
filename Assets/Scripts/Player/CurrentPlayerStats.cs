@@ -8,10 +8,6 @@ public class CurrentPlayerStats : MonoBehaviour{
 
     public Animator playerAnimator;
 
-    public Color flashColour = new Color(1f,0f,0f,0.1f);
-
-    public Sprite playerSprite;
-
     [Header("Stats")]
 
     public int currentPlayerHP;
@@ -33,6 +29,10 @@ public class CurrentPlayerStats : MonoBehaviour{
     public Text MoneyText;
 
     public Text ScoreText;
+
+    public Text finalScoreText;
+
+    public Text finalMaxScoreText;
 
     void Awake() {
 
@@ -83,7 +83,7 @@ public class CurrentPlayerStats : MonoBehaviour{
 
         currentPlayerScore += amount;
 
-        ScoreText.text = currentPlayerScore.ToString();
+        ScoreText.text = "Score: " + currentPlayerScore.ToString();
 
     }
 
@@ -94,6 +94,12 @@ public class CurrentPlayerStats : MonoBehaviour{
         if (canTakeDamage) {
 
             currentPlayerHP -= amount;
+
+            if(currentPlayerHP < 0) {
+
+                currentPlayerHP = 0;
+
+            }
 
             HPText.text = "x" + currentPlayerHP.ToString();
 
@@ -168,20 +174,34 @@ public class CurrentPlayerStats : MonoBehaviour{
 
     public void PlayerDeath() {
 
-        GameManager.Instance.PlayerData.Money += currentPlayerMoney;
+        if (!dead) {
 
-        dead = true;
-        
+            Debug.Log(GameManager.Instance.PlayerData.Money);
 
 
-        if (currentPlayerScore > GameManager.Instance.PlayerData.MaxScore) {
+            GameManager.Instance.PlayerData.Money += currentPlayerMoney;
 
-            GameManager.Instance.PlayerData.MaxScore = currentPlayerScore;
+            dead = true;
+
+            
+
+
+            if (currentPlayerScore > GameManager.Instance.PlayerData.MaxScore) {
+
+                GameManager.Instance.PlayerData.MaxScore = currentPlayerScore;
+
+            }
+
+            
+
+            finalScoreText.text = "Score: " + currentPlayerScore;
+            finalMaxScoreText.text = "Max score: " + GameManager.Instance.PlayerData.MaxScore;
+
+            GameManager.Instance.SaveProgress();
 
         }
 
-
-        GameManager.Instance.SaveProgress();
+        
 
     }
 

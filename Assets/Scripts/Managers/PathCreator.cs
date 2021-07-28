@@ -12,6 +12,7 @@ public class PathCreator : MonoBehaviour
 
     public float velocidadActual;
 
+    public float velocidadSumada;
 
     void Start()
     {
@@ -21,7 +22,13 @@ public class PathCreator : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        velocidadActual += 0.001f;
+        if(!(velocidadActual >= 6.7f)){
+
+            velocidadActual += velocidadSumada;
+
+        }
+
+        
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

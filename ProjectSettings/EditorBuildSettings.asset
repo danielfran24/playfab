@@ -12,6 +12,6 @@ EditorBuildSettings:
     path: Assets/Scenes/Shop.unity
     guid: 709858e9fc408ee4ba7002d3c4302ef6
   - enabled: 1
-    path: Assets/Scenes/Jaime_Test.unity
-    guid: 9e0b1246357eab1459eed8bb20c4649d
+    path: Assets/Scenes/MainGame.unity
+    guid: 8d9eb2279d133f84fa906d7913948305
   m_configObjects: {}

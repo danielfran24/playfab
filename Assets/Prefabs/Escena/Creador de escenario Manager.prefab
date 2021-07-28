@@ -1,0 +1,90 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &138372670533742857
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 138372670533742856}
+  - component: {fileID: 138372670533742862}
+  - component: {fileID: 138372670533742863}
+  m_Layer: 0
+  m_Name: Creador de escenario Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &138372670533742856
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 138372670533742857}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &138372670533742862
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 138372670533742857}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 29d40c2afd1ccd04ba73858e60f43323, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  offset: 18.9
+  Paths:
+  - {fileID: 2781333058228753265, guid: a91292f1a5fbd0e4eac724224feff6d4, type: 3}
+  - {fileID: 2781333058228753265, guid: 213b0bbf41bfa424584a71736ca8e12b, type: 3}
+  - {fileID: 2781333058228753265, guid: 676e2ae112abdb442b319331421c49d2, type: 3}
+  - {fileID: 2781333058228753265, guid: 2313a8d258c4b7545b025fb797c4e72e, type: 3}
+  - {fileID: 2781333058228753265, guid: 776646995de52ab4a9f1b1a137b5c851, type: 3}
+  - {fileID: 2781333058228753265, guid: d7e20e04ad1f72d488a11c3165b2fe3a, type: 3}
+  - {fileID: 2781333058228753265, guid: 714e1a1fbf1ea5a47ba37bcf46854d2b, type: 3}
+  - {fileID: 2781333058228753265, guid: 4ea00290a9d0e354b95b7ef6f4d18334, type: 3}
+  - {fileID: 2781333058228753265, guid: 320e68ed275a39347b75bc1813c1aa63, type: 3}
+  - {fileID: 2781333058228753265, guid: ab3e36fa2f2c34b42ac00666b20c4f54, type: 3}
+  - {fileID: 2781333058228753265, guid: e35c16753504e8e4d99930f3ed263473, type: 3}
+  - {fileID: 2781333058228753265, guid: a802c32bb75bd2e4ca80be89e8ddb5c2, type: 3}
+  - {fileID: 2781333058228753265, guid: 413c7fef04ede3340a7797a3bb5e1a16, type: 3}
+  - {fileID: 2781333058228753265, guid: ab66732d294af8247973a7ac6b8e708a, type: 3}
+  velocidadActual: 6
+  velocidadSumada: 0
+--- !u!61 &138372670533742863
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 138372670533742857}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 15, y: 8}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0

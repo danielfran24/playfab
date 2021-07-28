@@ -37,11 +37,12 @@ public class PlayfabManager : Singleton<PlayfabManager> {
 
             CreateAccount = true,
             CustomId = SystemInfo.deviceUniqueIdentifier
+            
 
         };
 
         PlayFabClientAPI.LoginWithCustomID(request, onSucces, onFail);
-
+        
         
 
 
@@ -71,12 +72,12 @@ public class PlayfabManager : Singleton<PlayfabManager> {
         PlayFabClientAPI.GetUserData(request, (result) => {
             if (result.Data == null) {
 
-                Debug.Log("HHHHEEEEYYY");
+                
 
             }else {
 
                 GameManager.Instance.PlayerData = PlayerModel.LoadPlayerData(result.Data);
-                Debug.Log("Dineros: " + GameManager.Instance.PlayerData.Money);
+                
 
             }
             

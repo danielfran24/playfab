@@ -13,6 +13,7 @@ public class SceneLoader : MonoBehaviour{
 
         SceneManager.LoadScene(scene);
 
+        Time.timeScale = 1;
 
         //Provisional, no nos mates si esto sigue aquí Dani 
         
