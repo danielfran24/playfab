@@ -64,7 +64,7 @@ public class CurrentPlayerStats : MonoBehaviour{
 
         if (dead) {
 
-            playerAnimator.SetBool("dead", dead);
+            
 
         }
 
@@ -98,12 +98,12 @@ public class CurrentPlayerStats : MonoBehaviour{
             if(currentPlayerHP < 0) {
 
                 currentPlayerHP = 0;
-
+                
             }
 
             HPText.text = "x" + currentPlayerHP.ToString();
 
-            playerAnimator.SetTrigger("damaged");
+           
 
             if (currentPlayerHP <= 0) {
 
@@ -111,6 +111,7 @@ public class CurrentPlayerStats : MonoBehaviour{
 
             }else {
 
+                playerAnimator.SetTrigger("damaged");
                 StartDamageAnimation();
 
             }
@@ -176,14 +177,19 @@ public class CurrentPlayerStats : MonoBehaviour{
 
         if (!dead) {
 
+            Debug.Log("muero");
+
+            canTakeDamage = false;
+
+            dead = true;
             Debug.Log(GameManager.Instance.PlayerData.Money);
 
 
             GameManager.Instance.PlayerData.Money += currentPlayerMoney;
 
-            dead = true;
 
-            
+            playerAnimator.SetBool("dead", true);
+
 
 
             if (currentPlayerScore > GameManager.Instance.PlayerData.MaxScore) {
@@ -198,6 +204,9 @@ public class CurrentPlayerStats : MonoBehaviour{
             finalMaxScoreText.text = "Max score: " + GameManager.Instance.PlayerData.MaxScore;
 
             GameManager.Instance.SaveProgress();
+
+
+
 
         }
 

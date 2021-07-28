@@ -31,7 +31,7 @@ public class ShopManager : MonoBehaviour{
             hpText.text = GameManager.Instance.PlayerData.TotalHP.ToString();
             moneyText.text = GameManager.Instance.PlayerData.Money.ToString();
 
-            costText.text = "Cost: " + 5 * GameManager.Instance.PlayerData.TotalHP;
+            costText.text = "Cost: " + 10 * GameManager.Instance.PlayerData.TotalHP;
 
             PlayfabManager.Instance.SetPlayerData();
 
